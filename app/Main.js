@@ -92,7 +92,7 @@ define([
       const appProxies = (portalItem && portalItem.appProxies) ? portalItem.appProxies : null;
 
       const viewProperties = itemUtils.getConfigViewProperties(config);
-      viewProperties.container = document.getElementById("view-container");
+      viewProperties.container = dom.byId("view-container");
 
       itemUtils.createMapFromItem({ item: firstItem, appProxies: appProxies }).then((map) => {
         viewProperties.map = map;

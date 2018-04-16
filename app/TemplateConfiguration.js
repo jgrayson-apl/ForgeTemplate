@@ -70,15 +70,23 @@ define([
         set: function (value) {
           this._set("templateConfig", value);
 
-          // IF IN CONFIG AND FOUND MATCHING INPUT, THEN SET VALUE TO LAYER ID //
-          if((this.templateConfig.values != null) && (this.templateConfig.values.group_layers_to_models != null)) {
-            this.templateConfig.values.group_layers_to_models.forEach(group_layer_to_model => {
-              const model_inputs = query(`.model-url-input[data-layer-id="${group_layer_to_model.layer_id}"`);
-              if(model_inputs.length > 0) {
-                const model_input = model_inputs[0];
-                model_input.value = group_layer_to_model.model_url;
-              }
-            });
+          // DO WE HAVE CONFIG VALUES //
+          if((this.templateConfig.values != null)) {
+            // IF IN CONFIG AND FOUND MATCHING INPUT, THEN SET VALUE TO LAYER ID //
+            if(this.templateConfig.values.group_layers_to_models != null) {
+
+              this.templateConfig.values.group_layers_to_models.forEach(group_layer_to_model => {
+                const model_inputs = query(`.model-url-input[data-layer-id="${group_layer_to_model.layer_id}"`);
+                if(model_inputs.length > 0) {
+                  const model_input = model_inputs[0];
+                  model_input.value = group_layer_to_model.model_url;
+                }
+              });
+            }
+
+            if(this.templateConfig.values.webscene != null) {
+              dom.byId("web-scene-input").value = this.templateConfig.values.webscene;
+            }
           }
 
           // UPDATE UI //
@@ -139,8 +147,11 @@ define([
      */
     saveConfiguration: function () {
 
-      this.templateConfig.values.group_layers_to_models = [];
+      // WEB SCENE //
+      this.templateConfig.values.webscene = dom.byId("web-scene-input").value;
 
+      // GROUP LAYERS TO MODELS //
+      this.templateConfig.values.group_layers_to_models = [];
       query(".model-url-input:valid").forEach(model_input => {
         if(model_input.value && model_input.value.length > 0) {
           this.templateConfig.values.group_layers_to_models.push({
@@ -153,6 +164,7 @@ define([
       domClass.add("save-configuration-btn", "btn-disabled");
       this.appItem.update({ data: this.templateConfig }).then(() => {
         domClass.remove("save-configuration-btn", "btn-disabled");
+        window.location = window.location;
       });
     },
 

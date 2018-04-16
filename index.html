@@ -58,22 +58,32 @@
 
     <!-- CONFIGURE -->
     <div id="configure-dialog" class="js-modal modal-overlay" data-modal="configure-dialog">
-      <div class="modal-content column-18" aria-labelledby="modal" role="dialog">
+      <div class="modal-content column-20" aria-labelledby="modal" role="dialog">
         <!--<span class="js-modal-toggle esri-interactive icon-ui-close right" aria-label="close-modal"></span>-->
         <h3 class="trailer-half text-blue">Edit Configuration</h3>
-        <table class="">
-          <thead>
-            <tr>
-              <th style="width:30%;">Group Layer</th>
-              <th>Forge Model URL</th>
-            </tr>
-          </thead>
-          <tbody id="layer_to_model_list">
-            <tr>
-              <td id="no-configuration" colspan="3" align="center" class="avenir-italic">there are no group layers</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="panel">
+          <div class="input-group">
+            <span class="input-group-button">
+              <div class="column-2">Web Scene</div>
+            </span>
+            <input id="web-scene-input" class="input-group-input" type="text" placeholder="enter Web Scene ID here">
+          </div>
+        </div>
+        <div id="layer_to_model_container" class="leader-quarter trailer-quarter">
+          <table class="table">
+            <thead>
+              <tr>
+                <th style="width:30%;">Group Layer</th>
+                <th>Forge Model URL</th>
+              </tr>
+            </thead>
+            <tbody id="layer_to_model_list">
+              <tr>
+                <td id="no-configuration" colspan="3" align="center" class="avenir-italic">there are no group layers</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         <img src="./assets/esri_science_of_where_white.png" class="left">
         <div class="text-right">
           <button id="save-configuration-btn" class="btn btn-disabled">Save Configuration</button>
