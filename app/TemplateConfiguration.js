@@ -152,7 +152,7 @@ define([
 
       // GROUP LAYERS TO MODELS //
       this.templateConfig.values.group_layers_to_models = [];
-      query(".model-url-input.input-success").forEach(model_input => {
+      query(".model-url-input:not(.input-error)").forEach(model_input => {
         if(model_input.value && model_input.value.length > 0) {
           this.templateConfig.values.group_layers_to_models.push({
             "layer_id": domAttr.get(model_input, "data-layer-id"),
@@ -164,7 +164,7 @@ define([
       domClass.add("save-configuration-btn", "btn-disabled");
       this.appItem.update({ data: this.templateConfig }).then(() => {
         domClass.remove("save-configuration-btn", "btn-disabled");
-        window.location = window.location;
+        //window.location = window.location;
       });
     },
 
