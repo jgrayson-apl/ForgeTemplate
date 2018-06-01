@@ -29,7 +29,7 @@
       { name: "ApplicationBase", location: distPath + "/application-base-js", main: "ApplicationBase" },
       // { name: "TemplateApplicationBase", location: templateAppPath + "/node_modules/@esri/application-base-js", main: "ApplicationBase" },
       { name: "config", location: distPath + "/config" },
-      { name: "calcite", location: "https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.0-rc.9/js", main: "calcite-web.min" }
+      { name: "calcite", location: "https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.0.1/js", main: "calcite-web.min" }
     ]
   };
   window["dojoConfig"] = dojoConfig;
