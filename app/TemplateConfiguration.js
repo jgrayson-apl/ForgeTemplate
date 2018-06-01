@@ -21,9 +21,7 @@ define([
   "dojo/dom-construct",
   "esri/portal/PortalItem",
   "esri/Map",
-], function (Accessor, Evented,
-             on, query, dom, domAttr, domClass, domConstruct,
-             PortalItem, EsriMap) {
+], function (Accessor, Evented, on, query, dom, domAttr, domClass, domConstruct, PortalItem, EsriMap) {
 
   const TemplateConfiguration = Accessor.createSubclass([Evented], {
     declaredClass: "TemplateConfiguration",
