@@ -30,7 +30,7 @@ This application shows how to associate Group Layers in a Web Scene to specific 
      
   5. Organization App Gallery
   
-     Use the template in your organization's group app gallery
+     Use the template in your organization's app gallery
      
 
 
